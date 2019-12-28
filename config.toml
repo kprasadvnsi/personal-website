@@ -1,0 +1,71 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Kali Prasad"
+theme = "hugo-vitae"
+paginate = 5
+
+copyright = "© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)"
+
+pygmentsstyle = "colorful"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+googleAnalytics = "UA-123-45"
+disqusShortname = "hugo-vitae"
+
+[taxonomies]
+	tag = "tags"
+	series = "series"
+
+[params]
+	subtitle = "Random blog"
+
+	# Optional 80x80 avatar image.
+	avatar = "/avatar.png"
+
+	# Content types to disable Disqus on.
+	disableDisqusTypes = ["page"]
+
+	# customCSS = "css/custom.css"  # Custom CSS applied to default styles.
+
+# Nav.
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
+
+[[params.social]]
+name = "Twitter"
+icon = "fab fa-twitter"
+url = "https://twitter.com/kprasadvnsi"
+
+[[params.social]]
+name = "Telegram"
+icon = "fab fa-telegram"
+url = "https://t.me/kprasadvnsi"
+
+[[params.social]]
+name = "Github"
+icon = "fab fa-github"
+url = "https://github.com/kprasadvnsi"
+
+[[params.social]]
+name = "RSS"
+icon = "fas fa-rss"
+url = "/index.xml"
+
