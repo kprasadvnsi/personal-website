@@ -1,5 +1,5 @@
 baseURL = "https://kprasadvnsi.com/"
-languageCode = "en-us"
+languageCode = "en-US"
 title = "Kali Prasad"
 theme = "hugo-vitae"
 paginate = 5
@@ -22,6 +22,7 @@ disqusShortname = "hugo-vitae"
 
 	# Optional 80x80 avatar image.
 	avatar = "/avatar.png"
+	avatarWebp = "/avatar.webp"
 
 	# Content types to disable Disqus on.
 	disableDisqusTypes = ["page"]
