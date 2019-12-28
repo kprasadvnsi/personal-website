@@ -15,6 +15,7 @@ before_script:
 # script - run the build script
 script:
     - hugo --minify
+    - echo "$CNAME_URL" > public/CNAME
 
 deploy:
   provider: pages
