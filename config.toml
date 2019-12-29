@@ -24,6 +24,8 @@ disqusShortname = "hugo-vitae"
 	avatar = "/avatar.png"
 	avatarWebp = "/avatar.webp"
 
+	favicon = "/favicon.ico"
+	
 	# Content types to disable Disqus on.
 	disableDisqusTypes = ["page"]
 
