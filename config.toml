@@ -58,6 +58,11 @@ icon = "fab fa-twitter"
 url = "https://twitter.com/kprasadvnsi"
 
 [[params.social]]
+name = "Mastodon"
+icon = "fab fa-mastodon"
+url = "https://mastodon.social/@kprasadvnsi"
+
+[[params.social]]
 name = "Telegram"
 icon = "fab fa-telegram"
 url = "https://t.me/kprasadvnsi"

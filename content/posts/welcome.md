@@ -8,5 +8,6 @@ tags = [
 ]
 +++
 
+Its time I start documenting my thought about various subjects. It will be mostly technical stuff and DIY projects.
 
 
