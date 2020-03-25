@@ -9,9 +9,9 @@ copyright = "© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vit
 pygmentsstyle = "colorful"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
+googleAnalytics = "UA-161815915-1"
+enableRobotsTXT = true
 
-googleAnalytics = "UA-123-45"
-disqusShortname = "hugo-vitae"
 
 [taxonomies]
 	tag = "tags"
