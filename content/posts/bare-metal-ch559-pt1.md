@@ -117,4 +117,4 @@ wchisptool -f blink.bin -g
 
 Congratulations! We've just written our first LED blink example.
 
-{{< youtube s80IY7E03bQ >}}
+{{< youtubelite id=s80IY7E03bQ title="CH559 LED Blink demo">}} 
