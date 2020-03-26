@@ -74,6 +74,11 @@ icon = "fab fa-github"
 url = "https://github.com/kprasadvnsi"
 
 [[params.social]]
+name = "Youtube"
+icon = "fab fa-youtube"
+url = "https://www.youtube.com/channel/UCJYk1lszl4uCf-kcCu27Ogw"
+
+[[params.social]]
 name = "RSS"
 icon = "fas fa-rss"
 url = "/index.xml"
