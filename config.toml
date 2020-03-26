@@ -18,8 +18,9 @@ enableRobotsTXT = true
 	series = "series"
 
 [params]
+	title = "Kali Prasad"
 	subtitle = "Random blog"
-
+	
 	# Optional 80x80 avatar image.
 	avatar = "/avatar.png"
 	avatarWebp = "/avatar.webp"

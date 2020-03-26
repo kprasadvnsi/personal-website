@@ -4,6 +4,7 @@ title = "CH559 Programming (Part 1): Setup and blinky"
 date = "2020-03-24"
 description = "Bare Metal programming with CH559"
 images = ["/ch559_dev_board.jpg"]
+videos = ["https://www.youtube.com/watch?v=s80IY7E03bQ"]
 tags = [
     "Bare Metal",
     "CH559",
