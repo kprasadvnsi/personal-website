@@ -4,7 +4,7 @@ title = "Kali Prasad"
 theme = "hugo-vitae"
 paginate = 5
 
-copyright = "© Copyright notice | [Vitae](https://github.com/dataCobra/hugo-vitae) theme for [Hugo](https://gohugo.io)"
+copyright = "© 2020 Kali Prasad"
 
 pygmentsstyle = "colorful"
 pygmentscodefences = true
@@ -77,6 +77,11 @@ url = "https://github.com/kprasadvnsi"
 name = "Youtube"
 icon = "fab fa-youtube"
 url = "https://www.youtube.com/channel/UCJYk1lszl4uCf-kcCu27Ogw"
+
+[[params.social]]
+name = "Email"
+icon = "fas fa-at"
+url = "mailto:kprasadvnsi@protonmail.com"
 
 [[params.social]]
 name = "RSS"
