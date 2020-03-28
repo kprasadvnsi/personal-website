@@ -1,5 +1,4 @@
 +++
-type = "tutorials"
 author = "Kali Prasad"
 title = "CH559 Programming (Part 1): Setup and blinky"
 date = "2020-03-24"
