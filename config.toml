@@ -20,6 +20,9 @@ enableRobotsTXT = true
 [author]
 	name = "Kali Prasad"
 
+[social]
+	twitter = "kprasadvnsi"
+
 [params]
 	title = "Kali Prasad"
 	subtitle = "Random blog"

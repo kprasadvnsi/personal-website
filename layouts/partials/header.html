@@ -24,7 +24,8 @@
 	{{ end -}}
 
 	{{- template "_internal/opengraph.html" . -}}
-	{{- template "_internal/twitter_cards.html" . -}}
+    {{- template "_internal/twitter_cards.html" . -}}
+    <meta name="twitter:creator" content="@kprasadvnsi"/>
     {{ partial "site-schema.html" . }}
     
     {{ $normalize := resources.Get "css/normalize.css" }}
