@@ -25,7 +25,7 @@
 
 	{{- template "_internal/opengraph.html" . -}}
 	{{- template "_internal/twitter_cards.html" . -}}
-    {{- template "_internal/schema.html" . -}}
+    {{ partial "site-schema.html" . }}
     
     {{ $normalize := resources.Get "css/normalize.css" }}
     {{ $main := resources.Get "css/main.css" }}

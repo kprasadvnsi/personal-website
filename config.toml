@@ -17,10 +17,13 @@ enableRobotsTXT = true
 	tag = "tags"
 	series = "series"
 
+[author]
+	name = "Kali Prasad"
+
 [params]
 	title = "Kali Prasad"
 	subtitle = "Random blog"
-	
+	description = "Random blog"
 	# Optional 80x80 avatar image.
 	avatar = "/avatar.png"
 	avatarWebp = "/avatar.webp"
@@ -31,6 +34,24 @@ enableRobotsTXT = true
 	disableDisqusTypes = ["page"]
 
 	# customCSS = "css/custom.css"  # Custom CSS applied to default styles.
+
+[params.logo]
+	url = "/avatar.png"
+	width = 80
+	height = 80
+
+[params.image]
+	url = "/avatar.png"
+	width = 80
+	height = 80
+
+[params.publisher]
+    name = "Kali Prasad"
+
+[params.publisher.logo]
+	url = "/avatar.png"
+	width = 80
+	height = 80
 
 # Nav.
 [[menu.main]]

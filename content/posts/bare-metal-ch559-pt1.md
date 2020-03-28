@@ -1,4 +1,5 @@
 +++
+type = "tutorials"
 author = "Kali Prasad"
 title = "CH559 Programming (Part 1): Setup and blinky"
 date = "2020-03-24"
@@ -12,6 +13,10 @@ tags = [
     "SDCC",
     "MCS-51",
 ]
+[image]
+    url = "/ch559_dev_board.jpg"
+    width = 800
+    height = 570
 +++
 
 The CH559 is a cheap 8051 based microcontroller with USB Host/Device capability and comes with plenty of Peripherals. CH559 is the most advance MCU in the CH55x series, the reason I am starting with the most advanced one because it is a Flash variant unlike other MCUs in the CH55x series.
