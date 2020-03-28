@@ -484,6 +484,11 @@ ul {
         margin-top: 10px;
     }
 
+    .header .site-description {
+        display: block;
+        justify-content: space-between;
+    }
+
     .header .nav.social li {
         margin: 0;
         padding: 2px;
