@@ -1,6 +1,6 @@
 +++
 author = "Kali Prasad"
-title = "	"
+title = "CH559 Programming (Part 2): Using Makefile"
 date = "2020-03-29"
 description = "Bare Metal programming with CH559"
 images = ["/make_dir_struct.png"]
