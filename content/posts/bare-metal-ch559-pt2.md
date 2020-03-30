@@ -1,6 +1,6 @@
 +++
 author = "Kali Prasad"
-title = "CH559 Programming (Part 2): Using Makefile"
+title = "	"
 date = "2020-03-29"
 description = "Bare Metal programming with CH559"
 images = ["/make_dir_struct.png"]
@@ -14,8 +14,8 @@ tags = [
 ]
 [image]
     url = "/make_dir_struct.png"
-    width = 800
-    height = 570
+    width = 746
+    height = 396
 +++
 
 In this part, we are going to organize and clean our LED blink example that we wrote in the [Part-1](/posts/bare-metal-ch559-pt1/) and automate the building process using [GNU Make](https://www.gnu.org/software/make/). Complete source code is also available on this [GitHub Repo](https://github.com/kprasadvnsi/ch55x_bare_metal).
