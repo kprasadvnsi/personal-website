@@ -73,6 +73,7 @@ We need Datasheet for this MCU to know its pinout and register map. Unfortunatel
 
 Let's write our first example. Create a file `blink.c` and add the following code.
 
+`--------------------------- blink.c ---------------------------`
 {{< highlight c "linenos=table">}}
 #include <compiler.h>
 #include <stdint.h>
