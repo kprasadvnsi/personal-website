@@ -20,7 +20,7 @@ In this part, we are going to learn about the CH559 memory structure and how the
 
 The CH559 has four distinct types of memory – iRAM (internal RAM), SFR (special function registers), ROM (program memory), and xRAM (external data memory).
 
-![Memory Organization](/mem_struct.png)
+![Memory Organization](/mem_struct.jpg)
 
 ## Internal RAM
 
