@@ -3,7 +3,7 @@ author = "Kali Prasad"
 title = "CH559 Programming (Part 3): Memory Organization"
 date = "2020-03-30"
 description = "Bare Metal programming with CH559"
-images = ["/mem_struct.png"]
+images = ["/mem_struct.jpg"]
 tags = [
     "Bare Metal",
     "CH559",
@@ -11,7 +11,7 @@ tags = [
     "MCS-51",
 ]
 [image]
-    url = "/mem_struct.png"
+    url = "/mem_struct.jpg"
     width = 800
     height = 666
 +++
