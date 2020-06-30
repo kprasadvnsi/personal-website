@@ -1,0 +1,147 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>CH559 Programming (Part 5): Working with GPIO - Kali Prasad</title><meta name=Description content="CH559 Programming (Part 5): Working with GPIO - Kali Prasad"><link rel=icon type=image/png href=/favicon.ico><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:title" content="CH559 Programming (Part 5): Working with GPIO"><meta property="og:description" content="Bare Metal programming with CH559"><meta property="og:type" content="article"><meta property="og:url" content="https://kprasadvnsi.com/posts/bare-metal-ch559-pt5/"><meta property="og:image" content="https://kprasadvnsi.com/adv_blink.png"><meta property="article:published_time" content="2020-04-02T00:00:00+00:00"><meta property="article:modified_time" content="2020-04-02T00:00:00+00:00"><meta property="og:site_name" content="Kali Prasad"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://kprasadvnsi.com/adv_blink.png"><meta name=twitter:title content="CH559 Programming (Part 5): Working with GPIO"><meta name=twitter:description content="Bare Metal programming with CH559"><meta name=twitter:site content="@kprasadvnsi"><meta name=twitter:creator content="@kprasadvnsi"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"CH559 Programming (Part 5): Working with GPIO","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/kprasadvnsi.com\/posts\/bare-metal-ch559-pt5\/"},"image":{"@type":"ImageObject","url":"https:\/\/kprasadvnsi.com\/adv_blink.png","width":800,"height":446},"genre":"posts","keywords":"Bare Metal, CH559, 8051, MCS-51, UART","wordcount":561,"url":"https:\/\/kprasadvnsi.com\/posts\/bare-metal-ch559-pt5\/","datePublished":"2020-04-02T00:00:00","dateModified":"2020-04-02T00:00:00","license":"© 2020 Kali Prasad","publisher":{"@type":"Organization","name":"Kali Prasad","logo":{"@type":"ImageObject","url":"https:\/\/kprasadvnsi.com\/avatar.png","width":80,"height":80}},"author":{"@type":"Person","name":"Kali Prasad"},"description":"Bare Metal programming with CH559"}</script><link rel=preload href=https://kprasadvnsi.com/css/bundle.min.7ceb6505cb87d0614f44be28b935ac372beb44497009528d82e25ed4360ef407.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet type=text/css media=screen href=https://kprasadvnsi.com/css/bundle.min.7ceb6505cb87d0614f44be28b935ac372beb44497009528d82e25ed4360ef407.css></noscript><script data-ad-client=ca-pub-6490269775913302 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){};}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload");}catch(e){ret=false;}
+return function(){return ret;};})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){if(link.addEventListener){link.removeEventListener("load",enableStylesheet);}else if(link.attachEvent){link.detachEvent("onload",enableStylesheet);}
+link.setAttribute("onload",null);link.media=finalMedia;}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet);}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet);}
+setTimeout(function(){link.rel="stylesheet";link.media="only x";});setTimeout(enableStylesheet,3000);};rp.poly=function(){if(rp.support()){return;}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",true);rp.bindMediaToggle(link);}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run);});}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run);});}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS;}
+else{w.loadCSS=loadCSS;}}(typeof global!=="undefined"?global:this));</script></head><body><div class="container wrapper"><div class=header><div class=avatar><a href=https://kprasadvnsi.com/><picture>
+<source type=image/webp srcset=/avatar.webp><img src=/avatar.png alt="Kali Prasad"></picture></a></div><p class=site-title><a href=https://kprasadvnsi.com/>Kali Prasad</a></p><div class=site-description><p>Random blog</p><nav class="nav social"><ul class=flat><li class=li-social><a href=https://twitter.com/kprasadvnsi><i title=Twitter class="icons fab fa-twitter"></i></a></li><li class=li-social><a href=https://mastodon.social/@kprasadvnsi><i title=Mastodon class="icons fab fa-mastodon"></i></a></li><li class=li-social><a href=https://t.me/kprasadvnsi><i title=Telegram class="icons fab fa-telegram"></i></a></li><li class=li-social><a href=https://github.com/kprasadvnsi><i title=Github class="icons fab fa-github"></i></a></li><li class=li-social><a href=https://www.youtube.com/channel/UCJYk1lszl4uCf-kcCu27Ogw><i title=Youtube class="icons fab fa-youtube"></i></a></li><li class=li-social><a href=mailto:kprasadvnsi@protonmail.com><i title=Email class="icons fas fa-at"></i></a></li><li class=li-social><a href=/index.xml><i title=RSS class="icons fas fa-rss"></i></a></li></ul></nav></div><nav class=nav><ul class=flat><li><a href=/>Home</a></li><li><a href=/posts>All posts</a></li><li><a href=/about>About</a></li><li><a href=/tags>Tags</a></li></ul></nav></div><div class=post><div class=author></div><div class=post-header><div class=meta><div class=date><span class=day>02</span>
+<span class=rest>Apr 2020</span></div></div><div class=matter><h1 class=title>CH559 Programming (Part 5): Working with GPIO</h1></div></div><div class=markdown><p><img src=/adv_blink.png alt="Advanced Blinky">
+In this part, we will go through GPIO in detail. we had briefly touched upon GPIOs in our <a href=/posts/bare-metal-ch559-pt1/>first tutorial</a>. Now we will rewrite the LED blink example in a more structured way later in this tutorial.</p><p>CH559 has 45 I/O pins, some of them have alternative functions. All the GPIOs are group into ports of up to 8 pins. P0 to P3 all registers for the GPIO are bit addressable. There are a P4 and P5 in Ch559 but will talk about them in future tutorials.</p><h2 id=gpio-registers>GPIO Registers</h2><p>There is mainly one power configuration register(PORT_CFG) for P0~P3 and three configuration registers for each port. Let&rsquo;s start with the PORT_CFG register, what it does and how we can configure it.</p><p>Here is the snippet from <a href=https://kprasadvnsi.github.io/CH559_Doc_English/docs/10-gpio/>Datasheet</a>.</p><p><img src=/port_cfg.png alt="PORT_CFG register"></p><p>The register bits are divided into two parts. lower 4 bits(bPn_OC) are for configuring output mode and upper 4 bits(bPn_DRV) are for configuring output current for each port. If you are wondering what Push-Pull and Open-Drain are then you can check this <a href=https://open4tech.com/open-drain-output-vs-push-pull-output/>article</a>.</p><p>Next are the Pn, Pn_DIR, and P0=n_PU registers. Again, from the <a href=https://kprasadvnsi.github.io/CH559_Doc_English/docs/10-gpio/>Datasheet</a>, we can see what these registers do. All registers and bits in this section are expressed in a common format: the lowercase &ldquo;n&rdquo; represents the serial number of the port (n = 0, 1, 2, 3), and the lowercase &ldquo;x&rdquo; represents the serial number of the bit (x = 0, 1, 2, 3, 4).</p><p><img src=/port_registers.png alt="Port Registers"></p><p>The configuration of the Pn port is implemented by the combination of the bit bPn_OC in the PORT_CFG, the port direction control register Pn_DIR, and the port pull-up enable register Pn_PU, as follows.</p><p><img src=/port_congif_table.png alt="Port config table"></p><h2 id=making-an-advanced-blinky>Making an Advanced Blinky</h2><p>We will make a LED blink example that has 8 LEDs and will drive it using port P0 of CH559. Copy the LED blink example from the <a href=/posts/bare-metal-ch559-pt2/>Part-2</a> tutorial and rename it to advance_blink. Open the main.c file and make the following changes.</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">56
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">57
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">58
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">59
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">60
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">61
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">62
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">63
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">64
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">65
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">66
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#888>// Blink LEDs connected to port P0
+</span><span style=color:#888></span>
+<span style=color:#579>#include</span> <span style=color:#579>&lt;stdint.h&gt;</span><span style=color:#579>
+</span><span style=color:#579>#include</span> <span style=color:#579>&lt;ch559.h&gt;</span><span style=color:#579>
+</span><span style=color:#579></span>
+<span style=color:#579>#define MASK_P0_OC 0x0F
+</span><span style=color:#579></span>
+<span style=color:#080;font-weight:700>static</span> <span style=color:#080;font-weight:700>inline</span> <span style=color:#339;font-weight:700>void</span> <span style=color:#06b;font-weight:700>delay</span>() {
+    uint32_t i;
+    <span style=color:#080;font-weight:700>for</span> (i <span style=color:#333>=</span> <span style=color:#00d;font-weight:700>0</span>; i <span style=color:#333>&lt;</span> (<span style=color:#00d;font-weight:700>5</span> <span style=color:#333>*</span> <span style=color:#00d;font-weight:700>12000UL</span>); i<span style=color:#333>++</span>){}
+        __asm__(<span style=background-color:#fff0f0>&#34;nop&#34;</span>);
+}
+
+<span style=color:#339;font-weight:700>void</span> <span style=color:#06b;font-weight:700>run_led</span> () {
+	uint8_t i;
+	<span style=color:#080;font-weight:700>for</span>(i<span style=color:#333>=</span><span style=color:#00d;font-weight:700>0</span>; i<span style=color:#333>&lt;</span><span style=color:#00d;font-weight:700>8</span>; i<span style=color:#333>++</span>) {
+		P0 <span style=color:#333>=</span> (<span style=color:#00d;font-weight:700>1</span> <span style=color:#333>&lt;&lt;</span> i);
+		delay();
+	}
+}
+
+<span style=color:#339;font-weight:700>void</span> <span style=color:#06b;font-weight:700>main</span>() {
+
+	PORT_CFG <span style=color:#333>|=</span> bP0_DRV <span style=color:#333>|</span> (MASK_P0_OC <span style=color:#333>&amp;</span> <span style=color:#333>~</span>bP0_OC); <span style=color:#888>// Set port P0 driving current and output mode.
+</span><span style=color:#888></span>    P0_DIR <span style=color:#333>=</span> <span style=color:#058;font-weight:700>0xFF</span>; <span style=color:#888>// Set all bits to output mode
+</span><span style=color:#888></span>
+	<span style=color:#888>// Turning all bits to high
+</span><span style=color:#888></span>	P0 <span style=color:#333>=</span> <span style=color:#058;font-weight:700>0xFF</span>;
+	delay();
+	delay();
+	delay();
+	delay();
+
+
+	<span style=color:#888>// Turning all bits to low
+</span><span style=color:#888></span>	P0 <span style=color:#333>=</span> <span style=color:#058;font-weight:700>0x00</span>;
+	delay();
+	delay();
+	delay();
+	delay();
+
+	<span style=color:#888>// Turning alternate bits to high
+</span><span style=color:#888></span>	P0 <span style=color:#333>=</span> <span style=color:#058;font-weight:700>0xAA</span>;
+	delay();
+	delay();
+	delay();
+	delay();
+
+	<span style=color:#888>// Turning upper half bits to high
+</span><span style=color:#888></span>	P0 <span style=color:#333>=</span> <span style=color:#058;font-weight:700>0xF0</span>;
+	delay();
+	delay();
+	delay();
+	delay();
+
+	<span style=color:#888>// Turning lower half bits to high
+</span><span style=color:#888></span>	P0 <span style=color:#333>=</span> <span style=color:#058;font-weight:700>0x0F</span>;
+	delay();
+	delay();
+	delay();
+	delay();
+
+	<span style=color:#080;font-weight:700>while</span> (<span style=color:#00d;font-weight:700>1</span>) {
+		run_led();
+	}
+}</code></pre></td></tr></table></div></div><p>Congratulations! We&rsquo;ve just written yet another LED blink example.</p><div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden><iframe src=https://www.youtube.com/embed/sj0Br56J-HU style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/sj0Br56J-HU?autoplay=1><img src=https://img.youtube.com/vi/sj0Br56J-HU/hqdefault.jpg alt='Video The Dark Knight Rises: What Went Wrong? – Wisecrack Edition'><span>▶</span></a>" frameborder=0 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="CH559 LED sequence demo for port P0"></iframe></div></div><div class=tags><div class=taxosfloating_left><p>Tags</p></div><div class=termsfloating_right><p><a href=/tags/8051/>8051</a>
+<a href=/tags/bare-metal/>bare-metal</a>
+<a href=/tags/ch559/>ch559</a>
+<a href=/tags/mcs-51/>mcs-51</a>
+<a href=/tags/uart/>uart</a></p></div><div class=clearit></div></div></div></div><div class="footer wrapper"><nav class=nav><div class=footertext>© 2020 Kali Prasad</div></nav></div><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-161815915-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>
